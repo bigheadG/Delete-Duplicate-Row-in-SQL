@@ -30,7 +30,23 @@
     4	James	Bond	UK
     5	James	Bond	UK
     6	James	Bond	UK
+    
+## Duplicate Row Check
 
+    SELECT [first_name],
+        [last_name],
+        [country],
+        COUNT(*) AS CNT
+    FROM [Employee]
+    GROUP BY [first_name],
+          [last_name],
+          [country]
+    HAVING COUNT(*) > 1;
+    
+    //result 
+    first_name last_name country CNT
+    James	Bond	UK	3
+     
 ## remove Duplicate Row
 
      DELETE FROM Employee
